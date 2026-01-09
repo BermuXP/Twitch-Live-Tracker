@@ -1,0 +1,25 @@
+version: '3'
+services:
+  discord-bot:
+    build: ./
+    volumes:
+      - ./:/app/
+      - /app/node_modules
+    depends_on:
+      - mariadb
+    command: sh -c "npm install && npm start"
+  mariadb:
+    image: mariadb:10.4
+    restart: always
+    command: --sql_mode=""
+    volumes:
+      - ./dbsetup.sql:/docker-entrypoint-initdb.d/dbsetup.sql
+    ports:
+      - 3306:3306
+    environment:
+      TZ: "Europe/Amsterdam"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ROOT_PASSWORD: "rootpwd"
+      MYSQL_DATABASE: 'local'
+volumes:
+  db-data:

@@ -1,0 +1,16 @@
+{
+  "name": "twitch-live-tracker",
+  "version": "1.0.0",
+  "description": "A Twitch live alerts bot for Discord",
+  "main": "main.js",
+  "type": "module",
+  "dependencies": {
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.0.3",
+    "mariadb": "^3.1.2",
+    "node-cron": "^3.0.2"
+  },
+  "scripts": {
+    "start": "node main.js"
+  }
+}

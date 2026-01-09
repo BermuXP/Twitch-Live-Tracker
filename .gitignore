@@ -1,0 +1,6 @@
+.history/
+.vscode/settings.json
+node_modules/
+.env
+/icons
+.github/
